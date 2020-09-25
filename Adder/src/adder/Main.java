@@ -28,8 +28,19 @@ public class Main
     	private static int addArguments(String[] args) 
 	{
 		int temp = 0;
-		for(int i=0; i< args.length; i++)
-			temp += Integer.valueOf(args[i]);
-        	return temp;
+		
+		if(args[0].equals("-"))
+			for(int i=1; i < args.length; i++)
+			{
+				if(Integer.valueOf(args[i]) >= 0)
+					temp -= Integer.valueOf(args[i]);
+				else
+					temp += Integer.valueOf(args[i]);
+			}	
+		
+		for(int o=0; o<args.length; o++)
+			temp += Integer.valueOf(args[o]);
+        	
+		return temp;
     	}
 }
