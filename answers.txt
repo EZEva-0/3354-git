@@ -1,0 +1,42 @@
+(a)	7
+
+Assuming that I am not supposed to commit the answers.txt until after all questions are answered, there are only 7 commits, as shown via the git log command.
+
+Note, not ideal to use on larger/older repositories, use command [git rev-list --all --count] in the future.
+	
+(b)	Jan 24, 22:28:11 2017 -0600
+
+Found from command [git log --diff-filter=A -- .gitignore]
+
+(c)	
+Git Status lists all files that have been changed since the last commit: Those files that have not been added or committed to the repository yet. It also lists the current branch and any files not currently tracked by git, (files yet to be added). 
+
+Git Log, however, shows project history, lists all prior commits and their branch locations. 
+
+(d)
+
+Untracked files are files that have not been added to the git repository, while Unstaged files have been added but not committed. 
+
+(e)
+
+Git checkout either switches branches or restores working tree files to a previous version in the same branch.
+
+Git reset will rest the current HEAD to a specified state.
+
+To explain, the HEAD is a pointer to the current branch reference, which is itself a pointer to the last commit made on that branch. In short, the HEAD is a snapshot of the last commit on any branch.
+
+The index is the proposed next commit, or the "staging area", where edits are committed, and files updated. Any files/ changes added with git add is placed here, awaiting the next commit. 
+
+Finally, we have the working directory / working tree, where edits and changes are made prior to being added to the staging area. 
+
+The idea is that files are manipulated, added, the committed, shifting the HEAD down one commit at a time. If, however, you need to return to a previous commit, aka, a previous system version, with older files and programs, you use git reset, to roll back to a previous commit on the same branch, all the wat back to the very first commit. Note, this does not move the head, rather, it moves the head pointer to a prior commit. 
+
+The git checkout command actually will move the head value itself. There are nuances to different calls with each, but, in general, reset will revert to a previous commit, while checkout will move to another branch while saving changes.
+
+(f)
+
+There are technically multiple possibilities, but assuming worst comes to worst, you may receive an error. If you do not receive an error, there are likely no conflicts, thus the content can remain uncommitted without version errors.
+
+You receive an error, you may use git stash to temporarily store the uncommitted changes for later, if there are no conflicts, you are good to go. If there are conflicts, however, you must select/merge from among the conflicts. 
+
+Ideally, you wouldn't have uncommitted changes
