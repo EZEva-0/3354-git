@@ -4,14 +4,25 @@ public class Main
 {
 	public static void main(String[] args) 
 	{
-        	try 	
+		int i = 0;
+        	try
+		{
+			if(!args[0].equals("-"))
+				i = Integer.parseInt(args[0]);
+		}
+		catch(NumberFormatException ex)
+		{
+			System.out.println("Invalid character in first arugument");
+		}
+		try 	
 		{
             		int result = addArguments(args);
             		System.out.println(result);
        		} 
-		catch (Exception e) 
+		catch (IllegalArgumentException ex) 
 		{
-            		System.err.println("Please provide two integers to add");
+
+            		System.err.println("Please provide at least one integer.");
         	}
     	}
     	private static int addArguments(String[] args) 
